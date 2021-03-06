@@ -13,7 +13,6 @@ import { AppComponent } from './app.component';
 
 import { LayoutComponent } from './layouts/layout.component';
 
-
 @NgModule({
   imports: [
     BrowserAnimationsModule,

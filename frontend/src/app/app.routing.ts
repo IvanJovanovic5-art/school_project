@@ -12,6 +12,7 @@ const routes: Routes = [
     children: [
       {
     path: '',
+    
     loadChildren: './layouts/layout.module#LayoutModule'
 }]},
 
