@@ -7,12 +7,21 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import {dbString, dbPw} from './config';
 import indexRouter from './routes/index';
+import userRouter from './routes/UserRoutes';
 
 const app = express();
 
-const mongoDB = dbString; 
+mongoose.connect(
+  dbString,
+  {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+  },
+//  () => console.log(" Mongoose is connected")
+);
 
-mongoose.connect(mongoDB);
 
 mongoose.Promise = global.Promise;
 
@@ -57,7 +66,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-
+app.use('/users', userRouter);
 app.use(function(req, res, next) {
   next(createError(404));
 });

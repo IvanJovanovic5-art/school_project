@@ -2,7 +2,7 @@
 
 
 #config database
-#config.js
+config.js
 
 # dependencies
 /node_modules

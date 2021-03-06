@@ -2,6 +2,6 @@
 
 ### Installation & Run
 
-npm install
+npm install <br />
 npm run devstart
 

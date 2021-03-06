@@ -1,4 +1,4 @@
-const dbString = "mongodb://127.0.0.1/vaja3";
+const dbString = 'mongodb+srv://ivan:ivan123@cluster-project.78ttb.mongodb.net/dbProject?retryWrites=true&w=majority';
 const dbPw = "";
 
 
