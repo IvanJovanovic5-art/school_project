@@ -1,10 +1,11 @@
-import UserModel from '../models/UserModel.js';
+import CompanyModel from '../models/CompanyModel.js';
 
-class UserController {
+class CompanyController {
 
+    // test method
     static async list(req, res) {
         try {
-            const users = await UserModel.find();
+            const users = await CompanyModel.find();
             return res.json(users);
         } catch (err) {
             return res.status(500).json({
@@ -17,14 +18,14 @@ class UserController {
     static async show(req, res) {
         const id = req.params.id;
         try {
-            const user = await UserModel.findOne({ _id: id });
-            if (!user) {
+            const company = await CompanyModel.findOne({ _id: id });
+            if (!company) {
                 return res.status(404).json({
-                    message: 'No such user'
+                    message: 'No such company'
                 });
             }
             else {
-                return res.json(user);
+                return res.json(company);
             }
 
         } catch (err) {
@@ -34,23 +35,20 @@ class UserController {
 
 
     static async create(req, res) {
-        const user = new UserModel({
-            email: req.body.email,
-            firstName: req.body.firstname,
-            lastName: req.body.lastname,
+        const company = new CompanyModel({
+            companyName: req.body.companyname,
+            address: req.body.address,
+            description: req.body.description,
             phoneNumber: req.body.phonenumber,
-            username: req.body.username,
-            password: req.body.password,
+            advertisementsIDs: [],
+            authorizedUserIDs: []
         });
+        company.authorizedUserIDs.push(req.session.userId);
+
         try {
-            let takenUsername = await UserModel.findOne({ username: req.body.username });
-            if (!takenUsername) {
-                await user.save();
-                return res.status(201).json(user);
-            }
-            else {
-                return res.json('Username is taken');
-            }
+            await company.save();
+            return res.status(200).render('naive-response',
+                { text: 'Uspesno ste dodali podjetje' });
         } catch (err) {
             return res.status(500).json({
                 message: 'Error when creating user',
@@ -83,13 +81,10 @@ class UserController {
         }
     }
 
-    static showLogin(req, res) {
-        res.render('user/login');
+    static showAddCompany(req, res) {
+        res.render('company/add-company');
     }
 
-    static showRegister(req, res) {
-        res.render('user/register');
-    }
 }
 
-export default UserController;
+export default CompanyController;

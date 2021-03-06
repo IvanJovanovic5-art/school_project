@@ -8,6 +8,7 @@ import cors from 'cors';
 import {dbString, dbPw} from './config';
 import indexRouter from './routes/index';
 import userRouter from './routes/UserRoutes';
+import companyRouter from './routes/CompanyRoutes';
 
 const app = express();
 
@@ -67,6 +68,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', userRouter);
+app.use('/companies', companyRouter);
+
 app.use(function(req, res, next) {
   next(createError(404));
 });
