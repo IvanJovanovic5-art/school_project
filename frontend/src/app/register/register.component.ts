@@ -8,6 +8,7 @@ import { RegisterUserService } from '../services/register-user.service'
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
+
 export class RegisterComponent implements OnInit {
   constructor(private usrService:RegisterUserService){}
   user:User = new User ();
@@ -15,7 +16,6 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(){
-    //this.submitted = true;
     this.usrService.addUser(this.user).subscribe(data=>{
       console.log("Registered user", data);
       this.user.email = "";

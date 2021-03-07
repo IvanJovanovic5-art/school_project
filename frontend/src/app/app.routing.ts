@@ -6,7 +6,6 @@ import { RegisterComponent } from './register/register.component';
 import { LayoutComponent } from './layouts/layout.component';
 
 const routes: Routes = [
-  
  {
     path: '',
     component: LayoutComponent,
@@ -19,6 +18,7 @@ const routes: Routes = [
 
 {path: '**',
 redirectTo:'home'},
+
 { path: 'register', component: RegisterComponent }, //user register
   
 ];

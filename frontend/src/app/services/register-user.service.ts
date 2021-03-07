@@ -10,6 +10,7 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
+
 export class RegisterUserService {
 
   constructor(private http: HttpClient) { }
@@ -22,6 +23,7 @@ export class RegisterUserService {
      const body=JSON.stringify(user);
      console.log(body);
      console.log(RegisterUserService.host);
-     return this.http.post<User>(RegisterUserService.host + 'users/register', body,{'headers':headers});//če das User bo vrjeno od backend castlno v user
+     return this.http.post<User>(RegisterUserService.host + 'users/register', body,{'headers':headers});
     }
+
 }
