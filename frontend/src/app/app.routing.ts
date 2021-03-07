@@ -2,11 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule, } from '@angular/common';
 import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
-
+import { RegisterComponent } from './register/register.component';
 import { LayoutComponent } from './layouts/layout.component';
 
 const routes: Routes = [
-  {
+  
+ {
     path: '',
     component: LayoutComponent,
     children: [
@@ -17,7 +18,8 @@ const routes: Routes = [
 }]},
 
 {path: '**',
-redirectTo:'home'}
+redirectTo:'home'},
+{ path: 'register', component: RegisterComponent }, //user register
   
 ];
 

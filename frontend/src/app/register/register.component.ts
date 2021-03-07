@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { User } from 'app/modules/user';
+import { RegisterUserService } from '../services/register-user.service'
 
 @Component({
   selector: 'app-register',
@@ -8,26 +9,20 @@ import { User } from 'app/modules/user';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  loading = false;
-  submitted = false;
-  user: User;
-  constructor() { }
-
+  constructor(private usrService:RegisterUserService){}
+  user:User;
   ngOnInit(): void {
-    this.resetForm();
-
   }
 
-  resetForm(Form?:NgForm){
-
-    if(Form != null)
-
-    Form.reset();
-    this.user ={
-      username:'',
-      password:'',
-      email:'',
-      id: null
-    }
+  onSubmit(){
+    //this.submitted = true;
+    console.log("haaalo");
+    this.usrService.addUser(this.user).subscribe(data=>{
+      console.log("Registerd user", data);
+      this.user.email = "";
+      this.user.username = "";
+      this.user.password = "";
+   });
   }
 }
+
