@@ -8,7 +8,6 @@ import { AppRoutingModule } from './app.routing';
 import { NavbarModule } from './shared/navbar/navbar.module';
 import { FooterModule } from './shared/footer/footer.module';
 import { SidebarModule } from './sidebar/sidebar.module';
-import { RegisterComponent } from './register/register.component';
 import { AppComponent } from './app.component';
 
 import { LayoutComponent } from './layouts/layout.component';
@@ -29,7 +28,6 @@ import { LayoutComponent } from './layouts/layout.component';
     
     AppComponent,
     LayoutComponent,
-    //RegisterComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

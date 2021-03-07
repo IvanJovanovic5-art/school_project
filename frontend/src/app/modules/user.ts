@@ -3,6 +3,6 @@
     firstName : String
     lastName : String
     phoneNumber : Number
-      username : String
-      password : String
+    username : String
+    password : String
 }

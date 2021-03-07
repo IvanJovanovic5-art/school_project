@@ -16,12 +16,14 @@ export class RegisterComponent implements OnInit {
 
   onSubmit(){
     //this.submitted = true;
-    console.log("haaalo");
     this.usrService.addUser(this.user).subscribe(data=>{
-      console.log("Registerd user", data);
+      console.log("Registered user", data);
       this.user.email = "";
       this.user.username = "";
+      this.user.firstName = "";
+      this.user.lastName = "";
       this.user.password = "";
+      this.user.phoneNumber = null;
    });
   }
 }
