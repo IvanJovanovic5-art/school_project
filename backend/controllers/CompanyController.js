@@ -61,9 +61,10 @@ class CompanyController {
         const id = req.params.id;
   
         try {
-          let deleteReservation = await CompanyModel.findByIdAndRemove({ _id: new mongo.ObjectId(id)});
-          if (!deleteReservation) {
-              return res.status(201).json(user);
+          let deleteCompany = await CompanyModel.findByIdAndRemove({ _id: req.params.id});
+          if (!deleteCompany) {
+              deleteCompany.delete();
+              return res.status(201).json(deleteCompany);
           }
           else {
               return res.json('Uspešno ste izbrisali podjetje');

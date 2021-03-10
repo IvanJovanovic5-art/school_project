@@ -62,7 +62,7 @@ class UserController {
         const id = req.params.id;
   
         try {
-          let deleteUser = await UserModel.findByIdAndRemove({ _id: new mongo.ObjectId(id)});
+          let deleteUser = await UserModel.findByIdAndRemove({ _id: req.params.id});
           if (!deleteUser) {
               deleteUser.delete();
               return res.status(201).json(user);
