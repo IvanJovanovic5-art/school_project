@@ -45,7 +45,6 @@ class UserController {
         try {
             let takenUsername = await UserModel.findOne({ username: req.body.username });
             if (!takenUsername) {
-                await user.save();
                 return res.status(201).json(user);
             }
             else {
@@ -58,6 +57,27 @@ class UserController {
             });
         }
     }
+
+    static async delete(req, res) {
+        const id = req.params.id;
+  
+        try {
+          let deleteUser = await UserModel.findByIdAndRemove({ _id: new mongo.ObjectId(id)});
+          if (!deleteUser) {
+              deleteUser.delete();
+              return res.status(201).json(user);
+          }
+          else {
+              return res.json('Uspešno ste izbrisali uporabnika');
+          }
+        } catch (err) {
+            return res.status(500).json({
+                message: 'Error when deleting user',
+                error: err
+            });
+        }
+    }
+  
 
     static async login(req, res, next) {
         UserModel.authenticate(req.body.username, req.body.password, function (error, user) {

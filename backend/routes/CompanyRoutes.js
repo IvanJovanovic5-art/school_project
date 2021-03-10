@@ -19,5 +19,6 @@ router.get('/addCompany', requiresLogin, CompanyController.showAddCompany);
 
 router.post('/addCompany', requiresLogin, CompanyController.create);
 
+router.post('/deleteCompany', requiresLogin, CompanyController.delete);
 
 export default router;

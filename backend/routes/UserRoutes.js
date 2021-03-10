@@ -14,6 +14,8 @@ router.post('/register', UserController.create);
 router.post('/login', UserController.login);
 router.post('/logout', UserController.logout);
 
+router.post('/deleteUser/:id', UserController.delete);
+
 //router.get('/logout', UserController.logout);
 
 export default router;

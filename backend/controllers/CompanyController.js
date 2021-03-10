@@ -57,6 +57,26 @@ class CompanyController {
         }
     }
 
+    static async delete(req, res) {
+        const id = req.params.id;
+  
+        try {
+          let deleteReservation = await CompanyModel.findByIdAndRemove({ _id: new mongo.ObjectId(id)});
+          if (!deleteReservation) {
+              return res.status(201).json(user);
+          }
+          else {
+              return res.json('Uspešno ste izbrisali podjetje');
+          }
+        } catch (err) {
+            return res.status(500).json({
+                message: 'Error when deleting company',
+                error: err
+            });
+        }
+    }
+
+    
     static async login(req, res, next) {
         UserModel.authenticate(req.body.username, req.body.password, function (error, user) {
             if (error || !user) {
