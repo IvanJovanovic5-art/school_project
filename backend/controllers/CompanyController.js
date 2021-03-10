@@ -58,23 +58,15 @@ class CompanyController {
     }
 
     static async delete(req, res) {
-        const id = req.params.id;
-  
         try {
-          let deleteCompany = await CompanyModel.findByIdAndRemove({ _id: req.params.id});
-          if (!deleteCompany) {
-              deleteCompany.delete();
-              return res.status(201).json(deleteCompany);
+            await CompanyController.findByIdAndRemove(req.params.id);
+            res.json("Uspešno izbrisano podjetje");
+          } catch (err) {
+              return res.status(500).json({
+                  message: 'Error when deleting company',
+                  error: err
+              });
           }
-          else {
-              return res.json('Uspešno ste izbrisali podjetje');
-          }
-        } catch (err) {
-            return res.status(500).json({
-                message: 'Error when deleting company',
-                error: err
-            });
-        }
     }
 
     

@@ -32,17 +32,12 @@ class ReservationController{
 
 
     static async delete(req, res) {
-      const id = req.params.id;
+      //var id = req.params.id.replace(/\n|\r/g, "");
+      //res.json(req.params.id);
   
       try {
-        let deleteReservation = await UserModel.findByIdAndRemove({ _id: req.params.id});
-        if (!deleteReservation) {
-          deleteReservation.delete()
-            return res.status(201).json(user);
-        }
-        else {
-            return res.json('Uspešno ste izbrisali rezervacijo');
-        }
+        await ReservationModel.findByIdAndRemove(req.params.id);
+        res.json("Uspešno izbrisana rezervacija");
       } catch (err) {
           return res.status(500).json({
               message: 'Error when deleting reservation',

@@ -59,23 +59,15 @@ class UserController {
     }
 
     static async delete(req, res) {
-        const id = req.params.id;
-  
         try {
-          let deleteUser = await UserModel.findByIdAndRemove({ _id: req.params.id});
-          if (!deleteUser) {
-              deleteUser.delete();
-              return res.status(201).json(user);
+            await UserController.findByIdAndRemove(req.params.id);
+            res.json("Uspešno izbrisan uporabnik.");
+          } catch (err) {
+              return res.status(500).json({
+                  message: 'Error when deleting user',
+                  error: err
+              });
           }
-          else {
-              return res.json('Uspešno ste izbrisali uporabnika');
-          }
-        } catch (err) {
-            return res.status(500).json({
-                message: 'Error when deleting user',
-                error: err
-            });
-        }
     }
   
 
