@@ -12,6 +12,7 @@ import { SidebarModule } from './sidebar/sidebar.module';
 import { AppComponent } from './app.component';
 
 import { LayoutComponent } from './layouts/layout.component';
+import { AlertComponent } from './alert/alert.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { LayoutComponent } from './layouts/layout.component';
   ],
   declarations: [
     AppComponent,
-    LayoutComponent
+    LayoutComponent,
+    AlertComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

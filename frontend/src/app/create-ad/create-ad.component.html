@@ -1,11 +1,35 @@
 <h2>Create Ad</h2>
-<form [FormGroup]="createAdForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
     
     <div class="form-group">
         <label for="date">Date</label>
-        <input type="date" FormControlName="date" class="form-control"/>
+        <input type="date" formControlName="date" class="form-control"/>
         <div *ngIf="submitted && f.date.errors" class="invalid-feedback">
             <div *ngIf="f.date.errors.required">Date is required</div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="timeFrom">Time From</label>
+        <input type="text" formControlName="timeFrom" class="form-control"/>
+        <div *ngIf="submitted && f.timeFrom.errors" class="invalid-feedback">
+            <div *ngIf="f.timeFrom.errors.required">Time From is required</div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="timeTo">Time To</label>
+        <input type="text" formControlName="timeTo" class="form-control"/>
+        <div *ngIf="submitted && f.timeTo.errors" class="invalid-feedback">
+            <div *ngIf="f.timeTo.errors.required">Time To is required</div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="company">Company</label>
+        <input type="text" formControlName="company" class="form-control"/>
+        <div *ngIf="submitted && f.company.errors" class="invalid-feedback">
+            <div *ngIf="f.company.errors.required">Company is required</div>
         </div>
     </div>
 
@@ -13,7 +37,7 @@
     <div class="form-group">
         <button [disabled]="loading" class="btn btn-primary">
             <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
-            Register
+            Register Ad
         </button>
         <a routerLink="" class="btn btn-link">Cancel</a>
     </div>

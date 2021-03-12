@@ -8,7 +8,6 @@ import { NguiMapModule} from '@ngui/map';
 
 import { LayoutRoutes } from './layout.routing';
 
-
 import { RegisterComponent } from '../register/register.component';
 import { LoginComponent } from '../login/login.component';
 import { HomeComponent } from '../home/home.component';
@@ -24,6 +23,7 @@ import { AddCompanyComponent } from '../add-company/add-company.component';
     RouterModule.forChild(LayoutRoutes),
     FormsModule,
     LbdModule,
+    ReactiveFormsModule,
     NguiMapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js?key=YOUR_KEY_HERE'})
   ],
   declarations: [

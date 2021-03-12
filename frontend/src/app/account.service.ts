@@ -5,10 +5,10 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { environment } from '../environments/environment';
-import { User } from '../app/_models/user';
+import { User } from './_models/user';
 
 @Injectable({ providedIn: 'root' })
-export class UserService {
+export class AccountService {
     private userSubject: BehaviorSubject<User>;
     public user: Observable<User>;
 
