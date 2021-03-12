@@ -11,9 +11,10 @@ export const ROUTES: RouteInfo[] = [
     { path: 'home', title: 'Home',  icon: 'pe-7s-graph', class: '' },
     { path: 'user', title: 'User Profile',  icon:'pe-7s-user', class: '' },
     { path: 'register', title: 'Register',  icon:'pe-7s-note2', class: '' },
-    { path: 'login', title: 'Login',  icon:'pe-7s-news-paper', class: '',  },
-    { path: 'createAd', title: 'Create Ad',  icon:'pe-7s-science', class: '' },
-    { path: 'changeAd', title: 'Change Ad',  icon:'pe-7s-map-marker', class: '' },
+    { path: 'login', title: 'Login',  icon:'pe-7s-door-lock', class: '',  },
+    { path: 'addCompany', title: 'Add Company',  icon:'pe-7s-portfolio', class: '' },
+    { path: 'createAd', title: 'Create Ad',  icon:'pe-7s-plus', class: '' },
+    { path: 'changeAd', title: 'Change Ad',  icon:'pe-7s-refresh-2', class: '' },
 ];
 
 @Component({

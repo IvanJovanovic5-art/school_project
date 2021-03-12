@@ -15,6 +15,7 @@ import { HomeComponent } from '../home/home.component';
 import { UserComponent } from '../user/user.component';
 import { CreateAdComponent } from '../create-ad/create-ad.component';
 import { ChangeAdComponent } from '../change-ad/change-ad.component';
+import { AddCompanyComponent } from '../add-company/add-company.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { ChangeAdComponent } from '../change-ad/change-ad.component';
     HomeComponent,
     UserComponent,
     CreateAdComponent,
-    ChangeAdComponent
+    ChangeAdComponent,
+    AddCompanyComponent
   ]
 })
 
