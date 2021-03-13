@@ -1,4 +1,16 @@
-<div class="container">
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript" language="javascript">
+      function isNumberKey(){
+        var charCode = (evt.which) ? evt.which : evt.keyCode
+        return !(charCode > 31 && (charCode < 48 || charCode > 57));
+      }
+    </script>
+
+  </head>
+  <body>
+
 	<h1>Registration</h1>
 	<form (ngSubmit)="onSubmit()" #registerForm="ngForm">
         <div class="form-group">
@@ -39,12 +51,13 @@
 
 		  <div class="form-group">
 			<label for="phonenumber">Phone Number</label>
-			<input type="text" class="form-control" id="phonenumber"
-				   [(ngModel)]="user.phonenumber" name="phonenumber">
+			<input type="text" onkeypress=" isNumberKey($event);"   class="form-control" id="phonenumber"
+				   [(ngModel)]="user.phonenumber" name="phonenumber" >
 		  </div>
 
         <button type="submit" class="btn btn-success" [disabled]="!registerForm.form.valid">Submit</button>
       </form>
-    </div>
-
+    
+  </body>
+  </html>
 	<router-outlet></router-outlet>
