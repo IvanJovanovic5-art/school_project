@@ -1,3 +1,4 @@
+
 import ReservationModel from '../models/ReservationModel.js';
 
 class ReservationController{
@@ -64,6 +65,26 @@ class ReservationController{
                 error: err
             });
         }
+    }
+
+    static async setReservation(req, res){
+      ReservationModel.findByIdAndUpdate(req.body._id, {user: req.body.userId}).then(result =>{
+          res.status(200).json({message: "Update successful!"});
+      }).catch(error =>{
+        res.status(500).json({
+          message: "Couldn't update reservation!"
+        });
+      });
+    }
+
+    static async removeUserFromReservation(req, res){
+      ReservationModel.findByIdAndUpdate(req.body._id, {user: null}).then(result =>{
+        res.status(200).json({message: "User removed from reservation!"});
+      }).catch(error =>{
+        res.status(500).json({
+          message: "Couldn't remove user from reservation!"
+        });
+      });
     }
 }
 

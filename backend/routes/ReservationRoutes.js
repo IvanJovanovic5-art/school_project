@@ -10,4 +10,7 @@ router.post('/addReservation', ReservationController.create);
 
 router.post('/deleteReservation/:id', ReservationController.delete);
 
+router.put('/setReservation', ReservationController.setReservation);
+router.put('/removeUserFromReservation', ReservationController.removeUserFromReservation);
+
 export default router;
