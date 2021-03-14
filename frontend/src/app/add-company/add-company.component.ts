@@ -47,6 +47,7 @@ export class AddCompanyComponent implements OnInit {
             return;
         }
 
+      
         this.loading = true;
         this.companyService.registerCompany(this.form.value)
             .pipe(first())
