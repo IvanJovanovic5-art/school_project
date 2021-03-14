@@ -13,6 +13,7 @@ import { AppComponent } from './app.component';
 
 import { LayoutComponent } from './layouts/layout.component';
 import { AlertComponent } from './alert/alert.component';
+import { AdsComponent } from './ads/ads.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { AlertComponent } from './alert/alert.component';
   declarations: [
     AppComponent,
     LayoutComponent,
-    AlertComponent
+    AlertComponent,
+    AdsComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
