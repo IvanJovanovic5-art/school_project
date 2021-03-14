@@ -18,12 +18,13 @@ export class RegisterComponent implements OnInit {
   onSubmit(){
     this.usrService.addUser(this.user).subscribe(data=>{
       console.log("Registered user", data);
-      this.user.email = "";
+     /* this.user.email = "";
       this.user.username = "";
       this.user.firstName = "";
       this.user.lastName = "";
       this.user.password = "";
-      this.user.phoneNumber = null;
+      this.user.phoneNumber = null;*/
+      window.location.reload();
    });
   }
 }
